@@ -100,4 +100,19 @@ public class PublicationDAOImpl implements PublicationDAO {
         }
 
     }
+
+    @Override
+	public Publication read(String pId) {
+		Session session = SessionFactoryService.get().openSession();
+		Publication res = null;
+		try {
+			res = (Publication) session
+			.createQuery("select p from Publication p where p.id=:id")
+			.setParameter("id", pId)
+			.getSingleResult();
+		} finally {
+			session.close();
+		}
+		return res;
+	}
 }

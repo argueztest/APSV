@@ -22,6 +22,7 @@
 		</td>
 	</tr>
 	</table>
+	<a href="GenerateCVPdfServlet" class="btn btn-principal">Generate CV</a>
 	
 	<table width=100%>
 		<tr>

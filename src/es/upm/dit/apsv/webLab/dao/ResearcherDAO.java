@@ -10,4 +10,8 @@ public interface ResearcherDAO {
     public Collection<Researcher> readAll();
     public Researcher update( Researcher r);
     public void delete( Researcher r);
+    
+    public Researcher read(String rId);
+	public Researcher readEmail(String email);
+	public Researcher readUser(String email, String pwd);
 }

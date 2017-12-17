@@ -10,4 +10,7 @@ public interface PublicationDAO {
     public Collection<Publication> readAll();
     public Publication update( Publication p);
     public void delete( Publication p);
+    
+	public Publication read(String pId);
+
 }

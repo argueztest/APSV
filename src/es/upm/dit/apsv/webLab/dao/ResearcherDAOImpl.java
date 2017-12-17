@@ -114,6 +114,42 @@ public class ResearcherDAOImpl implements ResearcherDAO {
         return res;
     }
 
+	@Override
+	public Researcher read(String rId) {
+		Session session = SessionFactoryService.get().openSession();
+		Researcher res = null;
+		try {
+			res = (Researcher) session
+					.createQuery("select r from Researcher r where r.id= :id")
+					.setParameter("id", rId)
+					.uniqueResult();
+		} finally {
+			session.close();
+		}
+		return res;
+	}
+
+	@Override
+	public Researcher readEmail(String email) {
+		Session session = SessionFactoryService.get().openSession();
+		Researcher res = null;
+		try {
+			res = (Researcher) session
+					.createQuery("select r from Researcher r where r.eamil= :email")
+					.setParameter("email", email)
+					.uniqueResult();
+		}  finally {
+			session.close();
+		}
+		return res;
+	}
+
+	@Override
+	public Researcher readUser(String email, String pwd) {
+		// TODO Auto-generated method stub
+		return searchUser(email, pwd);
+	}
+
     
     
 }
